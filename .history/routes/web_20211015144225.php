@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/notify', function () {
 
-    $user = \App\Models\User::find(1);
+    $user = \App\User::find(1);
 
     $details = [
             'greeting' => 'Hi Artisan',
@@ -33,15 +32,3 @@ Route::get('/notify', function () {
 
     return dd("Done");
 });
-
-Route::get('/markAsRead', function(){
-
-	auth()->user()->unreadNotifications->markAsRead();
-
-	return redirect()->back();
-
-})->name('mark');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

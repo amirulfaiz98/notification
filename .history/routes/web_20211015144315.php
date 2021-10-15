@@ -41,7 +41,3 @@ Route::get('/markAsRead', function(){
 	return redirect()->back();
 
 })->name('mark');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
